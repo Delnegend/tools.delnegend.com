@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/x-icon" href="https://drive.google.com/uc?export=download&id=1qK2m1Iqf1rZPDrVy1EFxhiabKSOqkhX9">
+	<link rel="stylesheet" href="style.css">
+	<title>Cẩm nang cài win</title>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="javascript.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+</head>
+<body>
+<div class='lentop'>
+<div>
+<img src='https://1.bp.blogspot.com/-k6sikOdzFXQ/VwqCKDosmEI/AAAAAAAAKxE/nLxLhkTIO6o3iE5ZWmtxo2bf4QHdzPQNQ/s1600/top.png'/>
+</div>
+</div>
+	<div class="header">"Cẩm nang" cài win</div>
+	<div class="note">
+		• Mục đích của bài viết là hỗ trợ các bạn cài win một cách nhanh nhất và tối ưu win.<br>
+		• Nếu định cài Win 7 thì nên dùng bản Ultimate để hạn chế BSOD<br>
+		• Tất cả link trong bài viết 1 là từ trang chủ, 2 là từ OneDrive của mình, không lấy link bài viết khác nên không sợ die link hay virus<br><br>
+		• <strong>Pass giải nén (nếu có): itrum</strong><br>
+		• TC: viết tắt của trang chủ
+	</div>
+	<h3 class="headline">Mục lục <button onclick="mucluc()">Ấn/Hiện</button></h3>
+	<div class="body" id="mucluc">
+	<a href="#hl1">1. Chuẩn bị nguyên liêu</a><br>
+	<a href="#hl2">2. Sắp xếp dữ liệu</a><br>
+	<a href="#hl3">3. Tạo USB DLC Boot</a><br>
+	<a href="#hl4">4. Bắt đầu cài win</a><br>
+	<a href="#hl5">5. Thiết lập win</a><br>
+	<a href="#hl6">6. Cài đặt và tối ưu</a>
+	</div>
+	<h3 class="headline" id="hl1">1. Chuẩn bị nguyên liệu <button onclick="phan1()">Ấn/Hiện</button></h3>
+	<div id="phan1">
+	<h4 class="part">ISO cài win</h4>
+	<div class="body">
+		• Windows 10: <a href="https://www.microsoft.com/en-us/software-download/windows10" target="_blank">Media Creation Tool</a><br>
+		• Windows 7 All Ver đã test: <a href="http://megaurl.in/WwK1" target="_blank">32bit (2,4 GB)</a> | <a href="http://megaurl.in/uSGHE3GK" target="_blank">64bit (3,1 GB)</a><br>
+		• Windows XP SP3: <a href="http://megaurl.in/bv4mG8Mn" target="_blank">Download (624 MB)</a><br>
+	</div>
+	<h4 class="part">Drivers</h4>
+	<div class="body">
+		• NetDriver (lấy từ WanDrv 6.2, định cài win 10 không cần):<br>
+		<span class="thutdong"><span>+ </span><a href="http://megaurl.in/7Gkp" target="_blank">32bit (44 MB)</a> | <a href="http://megaurl.in/gyxJc" target="_blank">64bit (44 MB)</a></span><span><i> (được trích xuất từ WanDrv 6.5)</i></span><br>
+		<span class="thutdong"><span><br>
+		• Bộ kit IObit của mình: <a href="http://megaurl.in/1SHUH4">Download</a>
+	</div>
+	<div class="part"><strong>Những thứ khác</strong></div>
+	<div class="body">
+		• Công cụ Active Win:<br>
+		<span class="thutdong">+ Win 7: <a href="http://megaurl.in/CKcUgMq6" target="_blank">ChewWGA</a></span><br>
+		<span class="thutdong">+ Win 10: <a href="http://megaurl.in/tZ7fo5jW" target="_blank">AutoPico</a></span><br>
+		<span class="highlight">(Dùng cái này đảm bảo thành công 100%)</span><br><br>
+		• USB tối thiểu 4GB<br>
+		• DLCBoot: <a href="http://dlcboot.com" target="_blank">Download (2,3 GB) (TC)</a><br>
+		<span class="highlight">(Miễn là có win PE là được, trong bài viết này mình chỉ hướng dẫn đối với DLCBoot)</span><br><br>
+		• 7-Zip: <a href="https://www.7-zip.org/download.html" target="_blank">Download (TC)</a><br>
+		• Trình duyệt: <a href="https://coccoc.com" target="_blank">Cốc Cốc</a>, <a href="https://www.google.com/intl/vi_vn/chrome/" target="_blank">Chrome</a>, <a href="https://www.mozilla.org/vi/firefox/features/" target="_blank">Firefox</a><br><br>
+		<span class="highlight">(Những cái dưới đây có thể tải sau khi cài win)</span><br>
+		• NET Framework mới nhất: <a href="https://bit.ly/2wByUsK" target="_blank">Download (1,4 MB) (TC)</a><br>
+		• Ram Optimizer (mình trích xuất từ IObit Advanced SystemCare): <a href="http://megaurl.in/yg0pVqt" target="_blank">Download (12,1 MB)</a><br><br>
+		• CCleaner: 
+		<a href="http://www.ccleaner.com/ccleaner/download">Download (TC)</a><span> | </span>
+		<a href="http://megaurl.in/YSGgOcHN">File chép đè</a>
+	</div>
+	</div>
+	<h3 class="headline" id="hl2">2. Sắp xếp dữ liệu <button onclick="phan2()">Ấn/Hiện</button></h3>
+	<div class="body" id="phan2">
+		• Di chuyển hết dữ liệu vừa tải được vào một thư mục rồi chuyển nó sang một phân vùng khác
+	</div>
+	<h3 class="headline" id="hl3">3. Tạo USB DLCBoot <button onclick="phan3()">Ấn/Hiện</button></h3>
+	<div class="body" id="phan3">
+		• Giải nén xong file DLCBoot thì cắm USB vào máy tính và mở DLCBoot.exe lên<br>
+		• Nhấn vào biểu tượng USB được khoanh đỏ như hình dưới<br>
+		<img src="ScreenShot_20180529015703.jpg" alt="image"><br>
+		• Hiện lên hộp thoại <span class="highlight">Create USB...</span>, chọn như những vùng khoanh đỏ<br>
+		• Riêng phần ô vuông màu xanh thì chọn định dạng USB của bạn<br>
+	  	<img src="ScreenShot_20180529015857.jpg" alt="image"><br>
+	  	• Nhấn vào Create Boot rồi sau đó mới nhấn vào Install Kernel<br>
+	  	<img src="ScreenShot_20180529015953.jpg" alt="image"><br>
+	</div>
+	<h3 class="headline" id="hl4">4. Bắt đầu cài win <button onclick="phan4()">Ấn/Hiện</button></h3>
+	<div class="body" id="phan4">
+		• Cắm USB DLCBoot và khởi động lại máy tính<br>
+		• Vào chế độ Boot và chọn USB<br>
+		<i>(tham khảo <a href="https://bit.ly/2ITyh3t" target="_blank">cách vào Boot Menu các dòng máy</a>)</i><br>
+		• Chọn <span class="highlight">Mini Win 10 32bit</span> hoặc <span class="highlight">Mini Win 10 64bit</span><br>
+	  <img src="ScreenShot_20180529125955.jpg" alt="image"><br>
+		• Sau khi khởi động xong, tìm đến file ISO Win 7 rồi mount ra<br>
+	  <img src="Screenshot_1.jpg" alt="image"><br>
+		• Mớ DLC Menu trên Desktop lên, chọn mục System<br>
+		<img src="Screenshot_3.jpg" alt="image"><br>
+		• Chọn phần mềm WinNTSetup<br>
+		<img src="Screenshot_4.jpg" alt="image"><br>
+		• Hộp thoại WinNTSetup hiện lên, nhấn nút Search<br>
+		<img src="Screenshot_5.jpg" alt="image"><br>
+		• Tìm đến install.wim trong ổ đĩa vừa mount rồi nhấn Open<br>
+		<img src="Screenshot_6.jpg" alt="image"><br>
+		• Quay lại hộp thoại WinNTSetup, thiết lập tùy chỉnh như hình sau đó nhấn Setup<br>
+		<img src="Screenshot_7.png" alt="image"><br>
+		• Hộp thoại <span class="highlight"><i>Ready?</i></span> hiện lên, tích chọn <span class="highlight">Automatically...</span> rồi nhấn OK<br>
+		<img src="Screenshot_8.png" alt="image"><br>
+		• Việc bây giờ chỉ cần ngồi đợi để nó tự động cài đặt Windows, nhanh chậm tùy thuộc tốc độ đọc ghi bộ nhớ ổ đĩa<br>
+	</div>
+	<h3 class="headline" id="hl5">5. Thiết lập Windows <button onclick="phan5()">Ấn/Hiện</button></h3>
+	<div class="body" id="phan5">
+		• Thứ nhất, không có điều kiện Screenshot phần này<br>
+		• Thứ hai, đến phần này thì cái WinNTSetup nó tự động hóa gần như tất cả các bước rồi. Win 7 thì việc còn lại các bạn cần làm chỉ là điền tên, mật khẩu, chọn múi giờ <span class="highlight">(GMT +7: Bangkok, Hanoi, Jarkata)</span> và chọn Windows Update <span class="highlight">(tắt đi nhé, tuyệt đối không được bật. Mình đã thử Update toàn bộ mục trong Windows Update và đã bị BSoD liên tục)</span>
+		• Win 10 có chị Cortana hướng dẫn rồi :D
+	</div>
+	<h3 class="headline" id="hl6">6. Cài đặt và tối ưu <button onclick="phan6()">Ấn/Hiện</button></h3>
+	<div class="body" id="phan6">
+		• Cài đặt 7-Zip<br>
+		<img src="ScreenShot_20180610121728.png" alt="image" style="padding-right: 1em">
+		<img src="ScreenShot_20180610121739.png" alt="image"><br>
+		• Giải nén, cài đặt NetDriver rồi khởi động lại máy <span class="highlight">(Win 10 bỏ qua cái này)</span><br>
+		<img src="ScreenShot_20180610122229.png" alt="image"><br>
+		• Cài đặt và Crack Driver Booster<br>
+		<span class="thutdong">1) Cài đặt và thoát phần mềm nếu đang chạy</span><br>
+		<img src="ScreenShot_20180709102346.png" alt="image"><br>
+		<img src="ScreenShot_20180709102359.png" alt="image"><br>
+		<img src="ScreenShot_20180709102405.png" alt="image"><br>
+		<img src="ScreenShot_20180709102430.png" alt="image"><br>
+		<img src="ScreenShot_20180709102435.png" alt="image"><br>
+		<img src="ScreenShot_20180709102504.png" alt="image"><br>
+		<span class="thutdong">2) Copy file Patch vào thư mục cài đặt phần mềm, mặc định là</span><br>
+		<span class="highlight" style="padding-left: 10px">C:\Program Files (x86)\IObit\Driver Booster</span><br>
+		<span class="thutdong">3) Chạy file Patch với quyền Administrator và nhấn vào nút Patch</span><br>
+		<img src="ScreenShot_20180709102535.png" alt="image"><br>
+		<img src="ScreenShot_20180709102551.png" alt="image"><br>
+		<img src="ScreenShot_20180709102555.png" alt="image"><br>
+		<br>
+		• Sau khi cài đặt và Crack xong, <span class="highlight">Scan</span> toàn bộ máy tính rồi để nó tự cập nhật Driver<br>
+		<span class="highlight">Lưu ý trước khi nhấn Setup thì tích chọn Seclect All chỗ danh sách Driver</span>
+		<img src="ScreenShot_20180610123234.png" alt="image"><br>
+		<span class="highlight">(máy tính mình đã update toàn bộ Driver và MSVC)</span><br>
+		<img src="ScreenShot_20180610123405.png" alt="image"><br>
+		• Cài đặt Trình duyệt và Net Framework bằng file đã chuẩn bị<br>
+		<span class="highlight">
+			• Bước này xin phép không hướng dẫn vì quá đơn giản<br>
+			• Nếu để ý trong Driver Booster nó cài hộ mình Net Framework rồi thì thôi
+		</span>
+	</div>
+	<h3 class="headline">CHÚC CÁC BẠN THÀNH CÔNG ^_^</h3>
+	<div class="footer">Designed and written by nth19323</div>
+</body>
+</html>

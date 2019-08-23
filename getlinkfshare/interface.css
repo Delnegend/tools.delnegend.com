@@ -1,0 +1,32 @@
+body, html {
+	height:100%;
+	font-family: helvetica;
+	font-size: 20px;
+	color: white;
+	margin: 0 auto;
+	background: url("background.jpg") no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.upper {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 1em;
+	position: absolute;
+    height: auto;
+    width: auto;
+    left: 20%;
+    right: 20%;
+    top: 30%;
+    text-align: center
+}
+.lower {
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 1em;
+	position: absolute;
+	left: 20%;
+    right: 20%;
+    top: 50%;
+    text-align: center
+}

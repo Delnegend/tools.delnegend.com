@@ -1,0 +1,142 @@
+* {
+    margin: 0 auto
+}
+a {
+    text-decoration:none;color: rgba(2,255,0,1.00)
+}
+@font-face {
+    font-family: jfs;
+    src: url(josefinsans-bold.ttf);
+}
+html{
+	background: url("green-leaf-summer.jpg") no-repeat center center fixed;
+	background-size: cover;
+}
+body {
+	width: 960px;
+	font-family: Noto Sans;
+	color: white;
+}
+.headline {
+    background-color: rgba(0,0,0,0.7);
+    padding: 1em;
+    text-align: center;
+    font-size: 25px;
+    font-family: jfs;
+    margin-bottom: 10px;
+}
+.rainbow {
+  -webkit-animation: rainbowt 3s infinite;
+  -ms-animation: rainbowt 3s infinite;
+  animation: rainbowt 3s infinite; 
+}
+@-moz-keyframes rainbowt {
+    20%{color: red;}
+    40%{color: yellow;}
+    60%{color: green;}
+    80%{color: blue;}
+    100%{color: orange;}    
+}
+@-webkit-keyframes rainbowt {
+    20%{color: red;}
+    40%{color: yellow;}
+    60%{color: green;}
+    80%{color: blue;}
+    100%{color: orange;}    
+}
+@-o-keyframes rainbowt {
+    20%{color: red;}
+    40%{color: yellow;}
+    60%{color: green;}
+    80%{color: blue;}
+    100%{color: orange;}    
+}
+@keyframes rainbowt {
+    5%{color: red;}
+    35%{color: yellow;}
+    65%{color: green;}
+    85%{color: blue;}
+    0%{color: orange;}  
+}
+.rainbow_background { 
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  background-size: 1800% 1800%;
+  -webkit-animation: rainbows 18s ease infinite;
+  -moz-animation: rainbows 18s ease infinite;
+  -o-animation: rainbows 18s ease infinite;
+  animation: rainbows 18s ease infinite;
+}
+@-webkit-keyframes rainbows {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbows {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@-o-keyframes rainbows {
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+@keyframes rainbows { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
+}
+.title {
+  padding: 1em;
+  background: rgba(0,0,0,0.7);
+  text-align: center;
+  font-style: bold;
+  font-size: 30px;
+  font-family: jfs;
+  margin-bottom: 10px
+}
+.section {
+  padding: 1em;
+  background: rgba(0,0,0,0.5);
+  font-size: 16px;
+  margin-bottom: 10px
+}
+.highlight {
+  color: yellow;
+  font-style: italic;
+}
+.link {
+  color: rgb(50, 255, 129);
+}
+a {
+  color: rgb(50, 255, 129);
+  text-decoration: underline;
+}
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+.end {
+  text-align: center;
+  font-size: 30px;
+  padding: 1em;
+  font-family: Baloo Chettan;
+  background-color: rgba(0,0,0,0.7);
+  margin-bottom: 10px;
+  text-decoration: bold;
+}
+.footer {
+  padding: 1em;
+  font-family: jfs;
+  text-align: center;
+  font-size: 16px;
+}
+img {
+  max-width: 940px;
+  max-height: auto;
+  padding: 10px 10px 0 10px;
+}
+.pv {
+  background-color: rgba(0,0,0,0.5);
+  margin-bottom: 10px
+}

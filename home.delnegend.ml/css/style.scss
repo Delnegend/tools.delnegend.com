@@ -1,0 +1,82 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+#element {
+    scrollbar-width: none;
+}
+
+* {
+    margin: 0 auto;
+    font-family: RalewayBold;
+    font-size: 16px;
+}
+
+body {
+    background: url("../img/background.jpg") center center fixed no-repeat;
+}
+
+@font-face {
+    font-family: RalewayBold;
+    src: url("../fonts/Raleway-Bold.ttf");
+}
+
+@mixin box_shadow($x) {
+    -webkit-box-shadow: 0px 0px $x 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 0px $x 0px rgba(0, 0, 0, 0.25);
+    -ms-box-shadow: 0px 0px $x 0px rgba(0, 0, 0, 0.25);
+    -o-box-shadow: 0px 0px $x 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px $x 0px rgba(0, 0, 0, 0.25);
+}
+
+@mixin transition($x...) {
+    -webkit-transition: $x;
+    -moz-transition: $x;
+    -ms-transition: $x;
+    -o-transition: $x;
+    transition: $x;
+}
+
+body {
+    padding: 1em;
+
+    .category {
+        // width: 200px;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 1em;
+        border-radius: .3em;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.25);
+        display: flex;
+        margin: .8em;
+        // flex-direction: row;
+    }
+
+    .websites_container {
+        display: flex;
+        flex-wrap: wrap;
+        // justify-content: center;
+        .website {
+            background-color: #fff;
+            border-radius: .3em;
+            overflow: hidden;
+            margin: 1em;
+
+            @include transition(box-shadow .5s ease-out);
+            @include transition(transform .2s ease-out);
+            @include box_shadow(5px);
+
+            &:hover {
+                @include box_shadow(10px);
+                transform: scale(1.1);
+            }
+
+            img {
+                padding: .8em;
+                width: auto;
+                height: 100px;
+            }
+        }
+    }
+}
