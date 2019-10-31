@@ -1,0 +1,167 @@
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <meta property="og:title" content="K.H.Player">
+      <meta property="og:description" content="Create Plyr.io-based HTML5 media player.">
+      <meta property="og:image" content="https://khplayer.delnegend.ml/img/meta.jpg">
+      <meta property="og:url" content="https://khplayer.delnegend.ml/">
+      <meta name="author" content="DELNEGEND" />
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="css/style.min.css">
+      <title>K.H.Player</title>
+</head>
+
+<body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <a class="navbar-brand" href="./">K.H.Player</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                  aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                        <a class="nav-item nav-link active" onclick="scrollToTop()">Introduce <span
+                                    class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link active" id='features_nav'>Features</a>
+                        <a class="nav-item nav-link active" id='pricing_nav'>Pricing</a>
+                        <a class="nav-item nav-link active" id='about_nav'>about</a>
+                        <a class="nav-item nav-link active" href="./begin">get started</a>
+                  </div>
+            </div>
+      </nav>
+
+      <div class="row1">
+            <video autoplay loop muted>
+                  <source src="img/background.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+            </video>
+            <div class="overlay-desc">
+                  <div class="text">
+                        <div class="top_text">K.H.Player</div>
+                        <div class="bottom_text">The <span id='changing-text'>quickest</span> K.H.Player
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+      <div class="row2">
+            <div class="demo">
+                  <div class="parag">
+                        K.H.Player is a HTML5 player based on Plyr.io frameword by <a
+                              href="https://github.com/sampotts">Sam
+                              Potts</a>. With our friendly UI, K.H.Player helps blogger, web makers creating
+                        astonishing web
+                        player
+                        without the hassle of intricate lines
+                        of codes. And with the power of JavaScript, you can embed a whole video/audio player
+                        (with or without
+                        playlist underneath) onto your website with only ONE pair of script tags. Try it out
+                        now by clicking <a href="#">here</a>
+                  </div>
+                  <div class="codepen_live shadow_hover">
+                        <p class="codepen" data-height="500" data-theme-id="0" data-default-tab="result"
+                              data-user="nth19323" data-slug-hash="arPEKB"
+                              style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+                              data-pen-title="K.H.Player Demo"> <span>See the Pen <a
+                                          href="https://codepen.io/nth19323/pen/arPEKB/">K.H.Player
+                                          Demo</a> by nth19323 (<a href="https://codepen.io/nth19323">@nth19323</a>) on
+                                    <a href="https://codepen.io">CodePen</a>.</span>
+                        </p>
+                        <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+                  </div>
+            </div>
+      </div>
+
+      <div class="row3 row_structure">
+            <div class="row_headline" id="feature">Feature</div>
+            <div class="row_content_outer">
+                  <div class="row_content_inner">
+                        📱 Responsive - works with any screen size<br> 📼 HTML Video & Audio - support
+                        for both formats<br>
+                        📺
+                        Embedded Video - support for YouTube and Vimeo video playback<br>
+                        <span class="comming_soon">💵 Monetization - make money from your videos
+                              (comming soon)</span><br>
+                        <span class="comming_soon">📹 Streaming - support for hls.js, Shaka and
+                              dash.js streaming
+                              playback (comming soon)</span><br> 🔎 Fullscreen - supports native
+                        fullscreen with fallback to
+                        "full
+                        window"
+                        modes<br> ⌨️ Shortcuts - supports keyboard shortcuts<br> 🖥 Picture-in-Picture
+                        - supports
+                        picture-in-picture mode<br> 🏎 Speed controls - adjust speed on the fly<br> 📖
+                        Multiple captions -
+                        support for multiple caption tracks<br> 👌 Preview thumbnails - support for
+                        displaying preview
+                        thumbnails<br>
+                  </div>
+            </div>
+      </div>
+
+      <div class="row4 row_structure">
+            <div class="row_headline" id="pricing">Pricing: free</div>
+            <div class="row_content_outer">
+                  <div class="row_content_inner">
+                        Yes. It's completely free.
+                  </div>
+            </div>
+      </div>
+
+      <div class="row5 row_structure">
+            <div class="row_headline" id="begin_tag">Start using K.H.Player</div>
+            <div class="row_content_outer">
+                  <div class="row_content_inner">
+                        <button type="button" class="btn btn-primary btn-lg shadow_hover" id="begin"
+                              onclick="location.href='./begin'">GET
+                              STARTED</button>
+                  </div>
+            </div>
+      </div>
+
+      <div class="row6">
+            <div class="about_us" id="about">authors</div>
+            <div class="memberList">
+
+                  <div class="member shadow_hover">
+                        <div class="image">
+                              <img src="img/NgDuc.jpg" alt="avatar">
+                        </div>
+                        <div class="name">
+                              Nguyễn Trọng Đức
+                        </div>
+                        <div class="job">
+                              UI Design
+                        </div>
+                  </div>
+
+                  <div class="member shadow_hover">
+                        <div class="image">
+                              <img src="img/DELNEGEND-avatar-small.jpg" alt="avatar">
+                        </div>
+                        <div class="name">
+                              Nguyễn Thế Kiên
+                        </div>
+                        <div class="job">
+                              Team Leader
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+      <div class="bottom_bar">© 2019 <a href="https://delnegend.ml" target="_blank">Delnegend</a></div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+      </script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+      </script>
+      <script src="js/index.min.js"></script>
+</body>
+
+</html>

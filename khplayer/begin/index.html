@@ -1,0 +1,191 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.min.css">
+  <title>K.H.Player Generator</title>
+</head>
+
+<body id='begin'>
+  <div id='back_to_homepage' onclick="location.href='../'" class="sticky-top">
+    K.H.PLAYER
+  </div>
+  <div id="user_interact_section">
+    <!-- Hướng dẫn sử dụng -->
+    <!-- #region -->
+    <div class='giai_thich showin'>
+      I. HDSD:<br>
+      • Nguồn poster chính: ảnh poster chính, nếu không có sẽ dùng ảnh mặc định.<br>
+      • Tiêu đề: điền tiêu đề video.<br>
+      • Nguồn poster: nếu không có sẽ dùng ảnh poster chính.<br>
+      • Nguồn video: direct url của video (xem lưu ý ở dưới)<br>
+      • Chất lượng, định dạng: nếu không chọn, mặc định 1080p và MP4.<br>
+      • Tên phụ đề: ngôn ngữ của phụ đề.<br>
+      • Viết tắt: VN, EN, CN, RU,...<br>
+      • Nguồn phụ đề: direct url của phụ đề không bị CORS chặn (<a href='https://topdev.vn/blog/cors-la-gi/'
+        target='_blank'>xem thêm</a>)<br>
+      <br>
+      II. 4 nút generate code:<br>
+      • Dữ liệu: Chỉ xuất dữ liệu từ input form phía trên, dùng trong trường hợp muốn thêm video vào K.H.Player
+      playlist có sẵn.<br>
+      • Full Code: generate dữ liệu và url của K.H.Player/jQuery kèm trong cặp thẻ
+      &#x3C;script&#x3E;&#x3C;/script&#x3E;<br>
+      • <span style='color: red;font-weight: 600'>ISOLATED</span>: Tính năng này sắp tới sẽ có. Các chế độ
+      generate code kia đều phải load 4 file rời (2 file css, 2 file js của Plyr và K.H.Player phần playlist),
+      điều này làm tăng thời gian load khung player từ 1 đến 2 giây nhưng trông gọn hơn. Code "Cách ly" sẽ
+      generate ra đoạn code hoàn toàn độc lập, kể cả mình xóa 4 file kia đi thì code vẫn dùng bình thường.<br>
+      <br>
+      III. Lưu ý:<br>
+      • Cách tạo link direct: Đối với link OneDrive, thêm <span style="color: yello">&download=1</span> vào cuối link, còn Google Drive nếu file nhẹ hơn 25MB, lấy id của file trong link và đặt vào sau <span style='color:yellow'>https://drive.google.com/uc?export=download&id=</span>, hơn 25MB thì đặt sau <span style="color:yellow">https://direct.gdrive.vip/</span>.
+    </div>
+    <!-- #endregion -->
+    <div id="masterPosterContainer" class="shadow_hover showin">
+      <input class="form-control" type="text" placeholder="Nguồn poster chính" id="masterPosterInput">
+    </div>
+  </div>
+  <div style="margin-top: 2em"></div>
+
+  <!-- Dữ liệu đã export -->
+  <!-- #region -->
+  <div id='exportedDataFrame' class="shadow_hover" style="display:none">
+    <div class="button_action">
+      <button type="button" class="btn btn-success" id='copyCodeToCB' data-clipboard-target='#exportedData'>Copy vào
+        clipboard</button>
+      <button type="button" class="btn btn-success" id='downloadExpData'>Tải xuống</button>
+    </div>
+    <div id='exportedData'></div>
+  </div>
+  <!-- #endregion -->
+
+  <!-- Lệnh export -->
+  <!-- #region -->
+  <div class="submit_button_background">
+    <form>
+      <button id='genBtnData' type="button" class="btn btn-success showin">Dữ liệu</button>
+      <button id='genBtnFullCode' type="button" class="btn btn-success showin">Full Code</button>
+      <button id="genBtnIsolated" type="button" class="btn btn-danger showin">ISOLATED</button>
+    </form>
+  </div>
+  <!-- #endregion -->
+
+
+  <div style="display:none" id="templateSkeleton">
+    <!-- Container_tập -->
+    <!-- #region -->
+    <div class="episode_container shadow_hover" style="display: none">
+      <!-- Input_tiêu_đề_và_poster -->
+      <div class="essentials">
+        <input class="form-control" type="text" placeholder="Tiêu đề" id="title">
+        <input class="form-control" type="text" placeholder="Nguồn poster" id="poster">
+      </div>
+
+      <!-- Container_nguồn -->
+      <!-- #region -->
+      <div id="sourceWarpper">
+        <!-- Các_thẻ_nguồn -->
+        <div class="input-group" id="singleSrcContainer">
+          <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Nguồn video"
+            id='mediaSrc'>
+          <!-- Chọn_chất_lượng -->
+          <div class="input-group-append" id="qualitySelectorContainer">
+            <!-- Chất lượng đã chọn -->
+            <!-- #region -->
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" id="qualitySelectorBtn">Chất lượng</button>
+            <!-- #endregion -->
+
+            <!-- Danh_sách_chất_lượng -->
+            <!-- #region -->
+            <div class="dropdown-menu">
+              <a class="dropdown-item" id='test02' res-data=4320>8K • 4320p</a>
+              <a class="dropdown-item" res-data=2880>5K • 2880p</a>
+              <a class="dropdown-item" res-data=5160>4K • 2160p</a>
+              <div role="separator" class="dropdown-divider"></div>
+              <a class="dropdown-item" res-data=1440>QHD • 1440p</a>
+              <a class="dropdown-item" res-data=1080>FHD • 1080p</a>
+              <a class="dropdown-item" res-data=720>HD • 720p</a>
+              <div role="separator" class="dropdown-divider"></div>
+              <a class="dropdown-item" res-data=576>576p</a>
+              <a class="dropdown-item" res-data=480>480p</a>
+              <a class="dropdown-item" res-data=360>360p</a>
+              <a class="dropdown-item" res-data=240>240p</a>
+            </div>
+            <!-- #endregion -->
+          </div>
+          <!-- Chọn_chất_lượng:end -->
+
+          <!-- Chọn_định_dạng -->
+          <!-- #region -->
+          <div class="input-group-append" id="typeSelectorContainer">
+            <!-- Định_dạng_đã_chọn -->
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false" id="typeSelectorBtn" selected-type="undefined">Định
+              dạng</button>
+            <!-- Định_dạng_đã_chọn:end -->
+
+            <!-- Danh_sách_định_dạng -->
+            <div class="dropdown-menu">
+              <a class="dropdown-item" type-data="video/mp4">MP4</a>
+              <a class="dropdown-item" type-data="video/webm">WEBM</a>
+            </div>
+            <!-- Danh_sách_định_dạng:end -->
+          </div>
+          <!-- #endregion -->
+
+          <!-- Nút_thêm_nguồn -->
+          <button type="button" class="btn btn-light" style="margin-left:1em" id='addSourceBtn'
+            onclick="addSrcBtnFn(this)">➕</button>
+          <!-- Nút_thêm_nguồn:end -->
+        </div>
+        <!-- Các_thẻ_nguồn:end -->
+      </div>
+      <!-- #endregion -->
+      <!-- Container_nguồn:end -->
+
+      <!-- Container_phụ_đề -->
+      <!-- #region -->
+      <div id='captionContainer'>
+        <!-- Các_thẻ_sub -->
+        <div class="singleCapElem">
+          <input class="form-control" type="text" placeholder="Tên phụ đề" id="captionFullName"><input
+            class="form-control" type="text" placeholder="Viết tắt" id="captionShortName"><input class="form-control"
+            type="text" placeholder="Nguồn phụ đề" id="capionSrc">
+          <!-- Nút_thêm_sub -->
+          <button type="button" class="btn btn-light" style="margin: 0 0 1em 1em" id='addCaptionBtn'
+            onclick="addCapBtnFn(this)">➕</button>
+          <!-- Nút_thêm_sub:end -->
+        </div>
+        <!-- Các_thẻ_sub:end -->
+      </div>
+      <!-- #endregion -->
+      <!-- Container_phụ_đề:end -->
+
+      <!-- Nút_thêm_tập -->
+      <div class="addRemoveEpBtn">
+        <button type="button" class="btn btn-light" style="margin-left: 1em" id="addEpBtn" class="EpBtn_dne"
+          onclick="ADD_EPISODE(this)">➕</button>
+      </div>
+      <!-- Nút_thêm_tập:end -->
+    </div>
+    <!-- #endregion -->
+    <!-- Container_tập:end -->
+    <div id="temp_zone"></div>
+  </div>
+  <!-- Scripts -->
+  <!-- #region -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="/js/fileSaver.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+  <script src="/js/begin.min.js"></script>
+  <!-- #endregion -->
+</body>
