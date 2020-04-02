@@ -47,12 +47,13 @@ const genMovieName = {
   changeResult: () => {
     let tempName = [];
     genMovieName.necessaryData.forEach(elem => {
-      let inputValue = $(`#${elem.id}`).val();
+      let inputValue = $("#" + elem.id).val();
       if (inputValue != "") {
-        tempName.push(`[${inputValue}]`);
+        if ($("#" + elem.id).attr("id") != "sourceAuthor") tempName.push(`${inputValue}`);
+        else tempName.push(`[${inputValue}]`);
       }
     });
-    $(".output").html(tempName.join(""));
+    $(".output").html(tempName.join(" "));
     if ($('.output').html() == "") {
       $('.output').hide("fast");
     } else {
@@ -65,8 +66,5 @@ genMovieName.necessaryData.forEach(async elem => {
   $(".container").append(data);
 });
 $("#generate").click(() => {
-  // $(".output").hide("fast");
-
-  // $(".output").html(tempName.join("")).show("fast");
   genMovieName.copyToClipboard($(".output"));
 });
