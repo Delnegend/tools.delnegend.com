@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="URL extractor for web pages and text" />
+    <title>URL Xtractor</title>
+    <!-- #region CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/DELNEGEND/fonts@0.5/GoogleSans.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/DELNEGEND/fonts@0.5/NotoSans.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/DELNEGEND/fa-pro@5.13.0/css/all.min.css" integrity="sha384-IIED/eyOkM6ihtOiQsX2zizxFBphgnv1zbe1bKA+njdFzkr6cDNy16jfIKWu4FNH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="dist/style.min.css">
+    <!-- #endregion -->
+    <!-- #region JS -->
+    <script src="https://cdn.jsdelivr.net/npm/underscore@1.10.2/underscore-min.js" integrity="sha384-boWw/ARp/xpkZVAq2ZzNztE/pavnfIaVR78j4PkAJYK3798/4uSLZmPtvz7OUcuh" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/filesaver.js@1.3.4/FileSaver.min.js" integrity="sha384-XBD+PHL46CvdyLplRCRWWALIxBBy6RRSyw5OnE5qQCmtp12VhW8DW7jJZLKoiQd9" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/alasql@0.3.8/dist/alasql.min.js" integrity="sha384-M66EDSAP5Gr1inTuGP9eslfVcEJ4Li/Ah1JFcvMC3KYfhZ5XDMaSocxNnbJHbv9E" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.11.5/dist/xlsx.full.min.js" integrity="sha384-bZNtZDZ3J7h7fczPIjCInIzUOgQjArvfAm/NhIncQ2rHXj3/2CYYFxV0PhwXyTXV" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/eligrey/Blob.js/Blob.min.js"></script>
+    <script src="dist/header.min.js"></script>
+    <!-- #endregion -->
+</head>
+
+<body onload="document.getElementById('btnRun').click()">
+    <header>
+        <a href="https://github.com/DELNEGEND" target="_blank">URL Xtractor</a>
+    </header>
+    <div class="container">
+        <!-- #region Bước 1 -->
+        <h3 class="headerBlue">1. Nhập dữ liệu</h3>
+        <form id="frm1" name="frm1" class="step1" role="form" onsubmit="return false">
+            <div class="form-group">
+
+                <div class="ImOp1">
+                    <div class="opHeader">Lựa chọn 1: load từ file</div>
+                    <div class="flexRow">
+                        <input type="file" id="f1" class="form-control" onchange="loadTextFile(this,assignText,event)" title="Chọn tệp">
+                        <label for="txtEncoding"></label><span id="spanEncoding" style="float: left; white-space: nowrap;">&nbsp;&nbsp;Mã hoá&nbsp;&nbsp;</span>
+                        <select id="txtEncoding" class="form-control" title="Chọn kiểu mã hoá cho file được nhập" onchange="loadTextFile(document.getElementById('f1'),assignText)">
+                            <option value="" selected="selected">-Mặc định-</option>
+                            <option value="ISO-8859-1">ISO-8859-1 (Latin No. 1)</option>
+                            <option value="ISO-8859-2">ISO-8859-2 (Latin No. 2)</option>
+                            <option value="ISO-8859-3">ISO-8859-3 (Latin No. 3)</option>
+                            <option value="ISO-8859-4">ISO-8859-4 (Latin No. 4)</option>
+                            <option value="ISO-8859-5">ISO-8859-5 (Latin/Cyrillic)</option>
+                            <option value="ISO-8859-6">ISO-8859-6 (Latin/Arabic)</option>
+                            <option value="ISO-8859-7">ISO-8859-7 (Latin/Greek)</option>
+                            <option value="ISO-8859-8">ISO-8859-8 (Latin/Hebrew)</option>
+                            <option value="ISO-8859-9">ISO-8859-9 (Latin No. 5)</option>
+                            <option value="ISO-8859-13">ISO-8859-13 (Latin No. 7)</option>
+                            <option value="ISO-8859-15">ISO-8859-15 (Latin No. 9)</option>
+                            <option value="macintosh">Mac OS Roman</option>
+                            <option value="UTF-8">UTF-8</option>
+                            <option value="UTF-16">UTF-16</option>
+                            <option value="UTF-16BE">UTF-16 (Big-Endian)</option>
+                            <option value="UTF-16LE">UTF-16 (Little-Endian)</option>
+                            <option value="UTF-32">UTF-32</option>
+                            <option value="UTF-32BE">UTF-32 (Big-Endian)</option>
+                            <option value="UTF-32LE">UTF-32 (Little-Endian)</option>
+                            <option value="windows-1250">windows-1250 (Win East European)</option>
+                            <option value="windows-1251">windows-1251 (WinCyrillic)</option>
+                            <option value="windows-1252">windows-1252 (WinLatin-1)</option>
+                            <option value="windows-1253">windows-1253 (WinGreek)</option>
+                            <option value="windows-1254">windows-1254 (Win Turkish)</option>
+                            <option value="windows-1255">windows-1255 (Win Hebrew)</option>
+                            <option value="windows-1256">windows-1256 (Win Arabic)</option>
+                            <option value="windows-1257">windows-1257 (Win Baltic)</option>
+                            <option value="windows-1258">windows-1257 (Win Vietnamese)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="ImOp2">
+                    <div class="opHeader">Lựa chọn 2: nhập URL</div>
+                    <div class="flexRow">
+                        <input type="text" size="40" value="" name="url" id="url" class="form-control" title="Điền URL trang web" />
+                        <input type="button" id="btnUrl" class="btn btn-primary" value="Load URL" title="Load qua URL" onclick="loadURL(document.getElementById('url').value)" />
+                    </div>
+                </div>
+
+                <div class="ImOp3">
+                    <div class="opHeader">Lựa chọn 3: dán dữ liệu vào hộp thoại dưới</div>
+                    <label style="display: none;"><input id="chkList" type="checkbox" class="option-input checkbox" value="Y" title="Nhập danh sách những trang web cần quét"> Scan list of web pages</label>
+                    <textarea class="form-control" rows="10" cols="80" id="txt1" wrap="off" placeholder="Nhập dữ liệu hoặc danh sách các trang web cần tách URL"></textarea>
+                    <div class="clearNdemo">
+                        <input type="button" class="btn btn-primary" value="Xoá dữ liệu cũ" onclick="window.location.reload(true)">&nbsp;
+                        <input type="button" class="btn btn-primary" value="Ví dụ" title="Load from web page" onclick="document.getElementById('url').value='https://facebook.com/';document.getElementById('btnUrl').click()">
+                    </div>
+                </div>
+
+            </div>
+        </form>
+        <!-- #endregion -->
+        <hr>
+        <!-- #region Bước 2 -->
+        <h3 class="headerBlue">2. Tuỳ chỉnh liệu đầu ra
+            <a href="#" onclick="return false" data-toggle="collapse" data-target="#p4">
+                <i class="fad fa-arrow-square-down fa-lg" style="--fa-primary-color: #3dc9bb; --fa-secondary-color:#40e0d0;"></i>
+            </a>
+        </h3>
+
+        <fieldset class="scheduler-border collapse step2" id="p4">
+
+            Ngăn cách các url trong cùng 1 dòng
+
+            <div class="spacingBetweenURLs">
+                <label class="whitelist"><input type="radio" name="outsep" id="outSepComma" value="," checked="checked" class="option-input radio">&nbsp;dấu phẩy</label>
+                <label class="whitelist"><input type="radio" name="outsep" id="outSepSemicolon" value=";" class="option-input radio">&nbsp;dấu chấm phẩy</label>
+                <label class="whitelist"><input type="radio" name="outsep" id="outSepColon" value=":" class="option-input radio">&nbsp;dấu hai chấm</label>
+                <label class="whitelist"><input type="radio" name="outsep" id="outSepPipe" value="|" class="option-input radio">&nbsp;dấu sổ thẳng</label>
+                <label class="whitelist"><input type="radio" name="outsep" id="outSepTab" value=" " onclick="this.value='\t'" class="option-input radio">&nbsp;Tab</label>
+                <label class="whitelist"><input type="radio" name="outsep" id="outSepOther" value="o" class="option-input radio">&nbsp;
+                    <label class="custom">&nbsp;<input type="text" size="2" id="outSepOtherVal" value="*" /></label>
+                </label>
+            </div>
+
+            <div class="otherOptions">
+
+                <label><input id="chkCsvHeader" type="checkbox" class="option-input checkbox" />&nbsp;Bao gồm header trong dòng đầu tiên</label>
+                <label>Số lượng URL mỗi dòng:&nbsp;&nbsp;<input type="text" id="txtNumCols" value="1" class="" style="width: 50px"></label>
+                <label><input id="chkSort" type="checkbox" class="option-input checkbox" value="Y" checked="checked" />&nbsp;Sắp xếp các URL theo bảng chữ cái</label>
+                <label><input id="chkDup" type="checkbox" class="option-input checkbox" value="Y" checked="checked" />&nbsp;Loại bỏ các URL trùng lặp</label>
+
+                <div class="flexRow">
+                    <label class="whitelist"><input id="chkLimit" type="checkbox" class="option-input checkbox" value="Y" /></label>
+                    <label class="whitelist">&nbsp;Chỉ lấy URL có chứa&nbsp;&nbsp;<input name="txtLimit" id="txtLimit" type="text" size="30" value="" onblur="if(this.value.length>0)this.form.chkLimit.checked=true;else this.form.chkLimit.checked=false" /></label>
+                    <label class="whitelist flexRow">&nbsp;&nbsp;<input type="checkbox" class="option-input checkbox" value="Y" id="chkIsRegex" name="chkIsRegex" />&nbsp;Regex</label>
+                </div>
+
+                <div class="flexRow">
+                    <label><input id="chkSocial" type="checkbox" class="option-input checkbox" value="Y" /></label>
+                    <label>&nbsp;Lọc theo URL: &nbsp;<input type="radio" name="radShow" id="radShow" checked="checked" class="option-input radio" />&nbsp;lấy&nbsp;</label>
+                    <label><input type="radio" name="radShow" id="radNotShow" class="option-input radio" />&nbsp;không lấy</label>&nbsp;<label>những URL có chứa</label>
+                </div>
+                <input type="text" id="txtSocial" size="50" value="facebook.com,twitter.com,instagram.com,youtube.com,youtu.be,plus.google.com" />
+
+                <label><input id="chkForceCsv" type="checkbox" class="option-input checkbox" />&nbsp;Bắt buộc xuất kiểu CSV</label>
+                <label><input id="chkAnchor" type="checkbox" class="option-input checkbox" />&nbsp;Bê nguyên thẻ tag chứa URL xuống</label>
+                <label><input id="chkAppend" type="checkbox" class="option-input checkbox" />&nbsp;Giữ lại dữ liệu đã được xuất trước đó</label>
+                <label style="display: none;"><input id="chkIncludeFromUrl" type="checkbox" class="option-input checkbox" checked="unchecked" /></label>
+
+            </div>
+        </fieldset>
+        <!-- #endregion -->
+        <hr>
+        <!-- #region Bước 3 -->
+        <h3 class="headerBlue">3. Xuất URL</h3>
+        <div class="step3 flexCol">
+            <input type="button" id="btnRun" class="btn btn-primary exportBtn" value="Xuất" title="Tìm URL trong dữ liệu" onclick="runitonce(document.getElementById('txt1').value,false);return false">
+            <div class="form-group">
+                <textarea id="txta" rows="10" cols="80" wrap="off" placeholder="Kết quả" class="form-control"></textarea>
+            </div>
+        </div>
+        <!-- #endregion -->
+    </div>
+    <!-- <script src="dist/footer.min.js"></script> -->
+</body>
+
+</html>
