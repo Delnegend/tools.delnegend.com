@@ -1,0 +1,29 @@
+input-field {
+    &>div {
+        max-width: 300px;
+        width: 80%;
+    }
+}
+html,body {
+    margin: 0 auto;
+}
+.user-input {
+    margin-top: 2em;
+    // width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#result {
+  width: 100%;
+  text-align: center;
+  font-size: 60px;
+}
+* {
+  font-family: "Google Sans";
+  // color: white;
+}
+body {
+  // background-color: black;
+}

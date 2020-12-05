@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "style": "sass --watch style.scss:style.css -s compressed"
+  },
+  "name": "bitrate-calculator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Delnegend",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "sass": "^1.30.0"
+  }
+}
