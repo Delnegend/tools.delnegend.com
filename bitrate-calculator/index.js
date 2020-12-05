@@ -65,15 +65,23 @@ let fns = {
 
       data = ((src_mp / based_data.dimension) * 0.6 + (src_fps / data2calc[0]) * 0.4) * data2calc[1];
     }
-    return Math.round(data * 10) / 10;
+    return Math.round(data * 100) / 100;
   },
   changeResult() {
-
-    $("#result").html(this.calcBitrate({
-      width: $("#vid-width").val(),
-      height: $("#vid-height").val(),
-      fps: $("#vid-fps").val()
-    }));
+    let w = $("#vid-width").val(),
+      h = $("#vid-height").val(),
+      fps = $("#vid-fps").val(),
+      newBitrate = this.calcBitrate({
+        width: w,
+        height: h,
+        fps: fps
+      }),
+      newData;
+    if (w && h && fps && !isNaN(newBitrate))
+      newData = newBitrate + " Mbps";
+    else
+      newData = "";
+    $("#result").html(newData);
   }
 };
 // console.log(fns.arrayClosestIndex([1, 2, 3, 4, 5, 8.9, 9], 8));
