@@ -48,23 +48,27 @@ let fns = {
       // Get index of base res will be used for calculating the bitrate
       res_to_be_based_index = this.arrayClosestIndex(base_res_data.map(el => src_mp / el.dimension), 1),
       // NOTE - The base resolution
-      based_data = base_res_data[res_to_be_based_index];
+      based_data = base_res_data[res_to_be_based_index],
+      data2calc = [];
+      
+    if (src_fps > 0 && src_fps <= 45) data2calc = [30, based_data.framerate.standard];
+    else if (src_fps > 45) data2calc = [60, based_data.framerate.high];
+    let data = ((src_mp / based_data.dimension) * 0.6 + (src_fps / data2calc[0]) * 0.4) * data2calc[1];
 
-    let data;
-    // FPS in [24; 30] => use standard bitrate
-    if (src_fps >= 24 && src_fps <= 30) data = src_mp / based_data.dimension * based_data.framerate.standard;
-    // FPS in [48; 60] => use high bitrate
-    else if (src_fps >= 48 && src_fps <= 60) data = src_mp / based_data.dimension * based_data.framerate.high;
-    else {
-      let data2calc = [];
+    // // FPS in [24; 30] => use standard bitrate
+    // if (src_fps >= 24 && src_fps <= 30) data = src_mp / based_data.dimension * based_data.framerate.standard;
+    // // FPS in [48; 60] => use high bitrate
+    // else if (src_fps >= 48 && src_fps <= 60) data = src_mp / based_data.dimension * based_data.framerate.high;
+    // else {
+    //   let data2calc = [];
 
-      // FPS in [39; 47) U (60; +♾) => high bitrate 
-      if ((src_fps >= 39 && src_fps < 48) || src_fps > 60) data2calc = [60, based_data.framerate.high];
-      // FPS in (0,24) U (30; 39) => standart bitrate
-      else if ((src_fps > 0 && src_fps < 24) || (src_fps > 30 && src_fps < 39)) data2calc = [30, based_data.framerate.standard];
+    //   // FPS in [39; 47) U (60; +♾) => high bitrate 
+    //   if ((src_fps >= 39 && src_fps < 48) || src_fps > 60) data2calc = [60, based_data.framerate.high];
+    //   // FPS in (0,24) U (30; 39) => standart bitrate
+    //   else if ((src_fps > 0 && src_fps < 24) || (src_fps > 30 && src_fps < 39)) data2calc = [30, based_data.framerate.standard];
 
-      data = ((src_mp / based_data.dimension) * 0.6 + (src_fps / data2calc[0]) * 0.4) * data2calc[1];
-    }
+    //   data = ((src_mp / based_data.dimension) * 0.6 + (src_fps / data2calc[0]) * 0.4) * data2calc[1];
+    // }
     return Math.round(data * 100) / 100;
   },
   changeResult() {
