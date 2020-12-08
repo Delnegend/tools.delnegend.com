@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="input-group-prepend">
           <span class="input-group-text">${el.attr("title1")}</span>
         </div>
-        <input oninput="fns.changeResult()" type="number" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="${el.attr("placeholder")}" id="${el.attr("_id")}" min="1">
+        <input oninput="changeResult()" type="number" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="${el.attr("placeholder")}" id="${el.attr("_id")}" min="1">
         <div class="input-group-append">
           <span class="input-group-text">${el.attr("title2")}</span>
         </div>
