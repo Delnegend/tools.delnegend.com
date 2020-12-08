@@ -116,7 +116,7 @@ const changeResult = () => {
   else
     newData = "";
   $("#result").html(newData);
-}
+};
 document.addEventListener("DOMContentLoaded", () => {
   for (let elem of document.querySelectorAll('input-field')) {
     let el = $(elem);
