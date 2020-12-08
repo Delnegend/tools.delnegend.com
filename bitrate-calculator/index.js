@@ -53,7 +53,7 @@ let fns = {
       
     if (src_fps > 0 && src_fps <= 45) data2calc = [30, based_data.framerate.standard];
     else if (src_fps > 45) data2calc = [60, based_data.framerate.high];
-    let data = ((src_mp / based_data.dimension) * 0.6 + (src_fps / data2calc[0]) * 0.4) * data2calc[1];
+    let data = ((src_mp / based_data.dimension) * 0.9 + (src_fps / data2calc[0]) * 0.1) * data2calc[1];
 
     // // FPS in [24; 30] => use standard bitrate
     // if (src_fps >= 24 && src_fps <= 30) data = src_mp / based_data.dimension * based_data.framerate.standard;
