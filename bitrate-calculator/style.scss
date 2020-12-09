@@ -1,12 +1,10 @@
-* {
-  font-family: "Google Sans";
+:root {
+  --main-color: #C2185B;
+  --bg-color: #bdc1c849;
 }
 
-input-field {
-  &>div {
-    max-width: 300px;
-    width: 80%;
-  }
+* {
+  font-family: Poppins !important;
 }
 
 html,
@@ -15,8 +13,10 @@ body {
 }
 
 .user-input {
-  margin-top: 2em;
+  margin: 2em auto 0 auto;
   // width: 100%;
+  width: 280px;
+  max-width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,4 +27,177 @@ body {
   width: 100%;
   text-align: center;
   font-size: 50px;
+  margin-top: 10px;
+}
+
+.btn-toggle {
+  margin: 0 4rem;
+  padding: 0;
+  position: relative;
+  border: none;
+  height: 1.5rem;
+  width: 3rem;
+  border-radius: 1.5rem;
+  color: var(--main-color);
+  background: var(--bg-color);
+
+  &:before {
+    content: 'Low fps';
+    left: -4rem;
+  }
+
+  &:after {
+    content: 'High fps';
+    right: -4rem;
+    opacity: .5;
+  }
+
+  &>.handle {
+    position: absolute;
+    top: 0.1875rem;
+    left: 0.1875rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 1.125rem;
+    background: #fff;
+    transition: left .25s;
+  }
+
+  &.active {
+    transition: background-color .25s;
+    background-color: var(--main-color);
+
+    &>.handle {
+      left: 1.6875rem;
+      transition: left .25s;
+    }
+
+    &:before {
+      opacity: .5;
+    }
+
+    &:after {
+      opacity: 1;
+    }
+  }
+
+  &.btn-lg {
+    margin: 0 5rem;
+    padding: 0;
+    position: relative;
+    border: none;
+    height: 2.5rem;
+    width: 5rem;
+    border-radius: 2.5rem;
+
+    &:before {
+      content: 'Low';
+      left: -5rem;
+    }
+
+    &:after {
+      content: 'High';
+      right: -5rem;
+      opacity: .5;
+    }
+
+    &>.handle {
+      position: absolute;
+      top: 0.3125rem;
+      left: 0.3125rem;
+      width: 1.875rem;
+      height: 1.875rem;
+      border-radius: 1.875rem;
+      background: #fff;
+      transition: left .25s;
+    }
+
+    &.active {
+      transition: background-color .25s;
+
+      &>.handle {
+        left: 2.8125rem;
+        transition: left .25s;
+      }
+
+      &:before {
+        opacity: .5;
+      }
+
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.btn-toggle.btn-lg:before,
+.btn-toggle.btn-lg:after {
+  line-height: 2.5rem;
+  width: 5rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: absolute;
+  bottom: 0;
+  transition: opacity .25s;
+}
+
+.fps-select {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .title {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--main-color);
+  }
+}
+
+.res-input {
+  --border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .input-focus-effect {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 10px;
+    background-color: var(--bg-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+
+  .input-focus-effect input {
+    padding: 2rem .8rem .8rem;
+    border: 3px solid transparent;
+    display: block;
+    width: 100%;
+    border-radius: var(--border-radius);
+    transition: border 0.25s linear;
+    background-color: transparent;
+    outline: none;
+  }
+
+  .input-focus-effect input:focus {
+    border-color: var(--main-color);
+  }
+
+  .input-focus-effect label {
+    position: absolute;
+    top: .5rem;
+    left: 1rem;
+    // pointer-events: none;
+    color: #999;
+    transition: 0.25s linear;
+    // font-size: 1rem;
+  }
 }
