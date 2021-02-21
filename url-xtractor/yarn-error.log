@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: D:\meovu\Downloads\tools.delnegend.xyz\url-xtractor\package.json: Unexpected token } in JSON at position 122
+  SyntaxError: D:\meovu\Downloads\tools.delnegend.com\url-xtractor\package.json: Unexpected token } in JSON at position 122
       at JSON.parse (<anonymous>)
       at C:\Program Files (x86)\Yarn\lib\cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -31,7 +31,7 @@ npm manifest:
     },
     "repository": {
       "type": "git",
-      "url": "https://github.com/DELNEGEND/tools.delnegend.xyz/url-xtractor/"
+      "url": "https://github.com/DELNEGEND/tools.delnegend.com/url-xtractor/"
     },
     "author": "Delnegend",
     "license": "ISC",
