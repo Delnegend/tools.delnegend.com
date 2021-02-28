@@ -60,9 +60,6 @@ select:-webkit-autofill {
 ::-webkit-scrollbar-corner {
     background-color: #181a1b;
 }
-* {
-    scrollbar-color: #202324 #454a4d;
-}
 ::selection {
     background-color: #004daa !important;
     color: #e8e6e3 !important;
@@ -73,7 +70,7 @@ select:-webkit-autofill {
 }
 
 /* Invert Style */
-.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, embed[type="application/pdf"] {
+.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, embed[type="application/pdf"] {
     filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
 }
 
@@ -2295,6 +2292,43 @@ a.text-dark:hover {
 .text-reset {
     color: inherit !important;
 }
+.btn-toggle {
+    border-color: initial;
+    color: rgb(233, 74, 136);
+    background-image: initial;
+    background-color: rgba(58, 63, 65, 0.29);
+}
+.btn-toggle > .handle {
+    background-image: initial;
+    background-color: rgb(24, 26, 27);
+}
+.btn-toggle.active {
+    background-color: rgb(155, 19, 73);
+}
+.btn-toggle.btn-lg {
+    border-color: initial;
+}
+.btn-toggle.btn-lg > .handle {
+    background-image: initial;
+    background-color: rgb(24, 26, 27);
+}
+.fps-select .title {
+    color: rgb(233, 74, 136);
+}
+.res-input .input-focus-effect {
+    background-color: rgba(58, 63, 65, 0.29);
+}
+.res-input .input-focus-effect input {
+    border-color: transparent;
+    background-color: transparent;
+    outline-color: initial;
+}
+.res-input .input-focus-effect input:focus {
+    border-color: rgb(169, 21, 79);
+}
+.res-input .input-focus-effect label {
+    color: rgb(168, 160, 149);
+}
 
 /* Override Style */
 .vimvixen-hint {
@@ -2304,4 +2338,7 @@ a.text-dark:hover {
 }
 ::placeholder {
     opacity: 0.5 !important;
+}
+a[href="https://coinmarketcap.com/"] > svg[width="94"][height="16"] > path {
+    fill: var(--darkreader-neutral-text) !important;
 }
