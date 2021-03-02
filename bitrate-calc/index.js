@@ -6,8 +6,8 @@ const changeResult = (fpsChange = false) => {
     highFPS = $("#vid-fps").attr("aria-pressed"),
     UHD_bitrate;
 
-  if ((!fpsChange && highFPS == "true") || (fpsChange && highFPS == "false")) UHD_bitrate = 2700;
-  else if ((!fpsChange && highFPS == "false") || (fpsChange && highFPS == "true")) UHD_bitrate = 1800;
+  if ((!fpsChange && highFPS == "true") || (fpsChange && highFPS == "false")) UHD_bitrate = 4000;
+  else if ((!fpsChange && highFPS == "false") || (fpsChange && highFPS == "true")) UHD_bitrate = 2500;
 
   let
     res_ratio = (width * height) / (3840 * 2160),
