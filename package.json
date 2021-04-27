@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "eslint-config-google": "^0.14.0",
+    "sass": "^1.32.11"
+  },
+  "scripts": {
+    "sass": "sass --watch .//:.//"
+  },
+  "name": "tools.delnegend.com",
+  "description": "- [Base64 Converter](https://tools.delnegend.com/base64)\r - [LRC Maker](https://tools.delnegend.com/lrc-maker)\r - [Movie name generator](https://tools.delnegend.com/moviename.generator)\r - [URL Xtractor](https://tools.delnegend.com/url-xtractor)\r - [YT thumbnail download](https://tools.delnegend.com/ytthumb)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DELNEGEND/tools.delnegend.com.git"
+  },
+  "author": "Delnegend",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DELNEGEND/tools.delnegend.com/issues"
+  },
+  "homepage": "https://github.com/DELNEGEND/tools.delnegend.com#readme"
+}
