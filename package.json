@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "eslint-config-google": "^0.14.0",
-    "sass": "^1.32.11"
+    "sass": "^1.37.5"
   },
   "scripts": {
     "sass": "sass --watch .//:.//"
