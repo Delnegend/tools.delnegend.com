@@ -12,6 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js" integrity="sha384-PlRSzpewlarQuj5alIadXwjNUX+2eNMKwr0f07ShWYLy8B6TjEbm7ZlcN/ScSbwy" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" integrity="sha384-CUdYwYFu8WmBI8h257c5rCd1GQX0KL+zSYV6kyRNY2thW7QqQymKGfTCI1WHwzvy" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -26,9 +27,11 @@
       <span class="input-group-text">Raw json</span>
       <textarea class="form-control" id="raw-lyrics" aria-label="With textarea"></textarea>
     </div>
-    <!-- Download file button -->
+    <!-- Buttons -->
+    <button style="display: none;" id="ghost_button"></button>
     <button-container>
       <button id="button-download" type="button" class="btn btn-success">Download</button>
+      <button id="button-copy" type="button" class="btn btn-success">Copy 2 clipboard</button>
     </button-container>
   </main>
   <script src="vendor.js"></script>
