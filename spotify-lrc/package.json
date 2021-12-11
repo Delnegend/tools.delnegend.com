@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "sass": "^1.44.0"
+  },
+  "name": "spotify-lrc",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "dev": "sass -w style.scss:style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
