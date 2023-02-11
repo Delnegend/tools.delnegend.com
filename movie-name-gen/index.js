@@ -1,70 +1,86 @@
-const genMovieName = {
-  inputFields: (title, placeholder, id) => {
+const main = {
+  InputFields: (title, placeholder, id) => {
     return new Promise(resolve => {
-      resolve(`<div class="input-group mb-3"><div class="input-group-prepend"><span class="input-group-text">${title}</span></div><input oninput="genMovieName.changeResult()" type="text" class="form-control" placeholder="${placeholder}" aria-label="${placeholder}" id="${id}"></div>`);
+      resolve(`
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">${title}</span>
+          </div>
+          <input
+            oninput="main.ChangeResult()"
+            type="text"
+            class="form-control"
+            placeholder="${placeholder}"
+            aria-label="${placeholder}"
+            id="${id}">
+          </div>
+        `);
     });
   },
-  copyToClipboard: elem => {
-    var $temp = $("<input>");
-    $("body").append($temp);
-    $temp.val($(elem).html()).select();
-    document.execCommand("copy");
-    $temp.remove();
+  Copy: string => {
+    let temporary_elem = document.createElement("textarea");
+    temporary_elem.value = string.html();
+    document.body.appendChild(temporary_elem);
+    temporary_elem.select();
+    temporary_elem.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(temporary_elem.value);
+    document.body.removeChild(temporary_elem);
   },
-  necessaryData: [{
-    "title": "Tên phim",
-    "placeholder": "Fast and Furious 8, Avengers,...",
+  input_fields: [{
+    "title": "Movie name",
+    "placeholder": "Puss In Boots: The Last Wish,...",
     "id": "mediaTitle"
   }, {
-    "title": "Năm ra mắt",
-    "placeholder": "2010, 2020,...",
+    "title": "Release year",
+    "placeholder": "2010, 2020, 2030...",
     "id": "releaseYear"
   }, {
-    "title": "Phụ bản",
-    "placeholder": "Remux, Ultimate Cut, VIE,...",
-    "id": "specials"
-  }, {
-    "title": "Độ phân giải",
-    "placeholder": "2160p, 1080p, 720p,...",
+    "title": "Format/Resolution",
+    "placeholder": "IMAX 2160p, 1080p...",
     "id": "resolution"
   }, {
-    "title": "Định dạng",
-    "placeholder": "NF Web-DL, BluRay, AMZN WebRip,...",
-    "id": "format"
+    "title": "Source",
+    "placeholder": "DNSP WEB-DL, BluRay,...",
+    "id": "source"
   }, {
-    "title": "Mã hoá âm thanh",
-    "placeholder": "AAC 2.0, DTS 5.1,...",
+    "title": "Audio format",
+    "placeholder": "DDP5.1 Atmos, AAC2.0,...",
     "id": "audioCodec"
   }, {
-    "title": "Mã hoá hình ảnh",
-    "placeholder": "H264, H265, HEVC,...",
+    "title": "Video format",
+    "placeholder": "DV HDR10 x265,...",
     "id": "videoCodec"
   }, {
-    "title": "Tên nhóm RIP",
-    "placeholder": "NTd, SPARKS,...",
-    "id": "sourceAuthor"
+    "title": "Uploader",
+    "placeholder": "ION10, CM, SMURF,...",
+    "id": "uploader"
   }],
-  changeResult: () => {
-    let tempName = [];
-    genMovieName.necessaryData.forEach(elem => {
-      let inputValue = $("#" + elem.id).val();
-      if (inputValue != "") {
-        if ($("#" + elem.id).attr("id") != "sourceAuthor") tempName.push(`${inputValue}`);
-        else tempName.push(`[${inputValue}]`);
+  ChangeResult: function () {
+    let movie_name_result = ""
+    this.input_fields.forEach(elem => {
+      let input_elem = document.getElementById(elem.id);
+      let input_value = input_elem.value.replace(/\ +/g, ".")
+      let __not_empty = input_value !== "";
+      let __is_first_input = input_elem.id === this.input_fields[0].id;
+      let __is_uploader = input_elem.id === "uploader";
+      if (__not_empty) {
+        if (__is_first_input) {
+          movie_name_result += input_value;
+        } else if (__is_uploader) {
+          movie_name_result += "-" + input_value;
+        } else {
+          movie_name_result += "." + input_value;
+        }
       }
     });
-    $(".output").html(tempName.join(" "));
-    if ($('.output').html() == "") {
-      $('.output').hide("fast");
-    } else {
-      $('.output').show("fast");
-    }
+    document.getElementsByClassName("output")[0].innerHTML = movie_name_result;
   }
 };
-genMovieName.necessaryData.forEach(async elem => {
-  let data = await genMovieName.inputFields(elem.title, elem.placeholder, elem.id);
-  $(".container").append(data);
+main.input_fields.forEach(async elem => {
+  let data = await main.InputFields(elem.title, elem.placeholder, elem.id);
+  document.getElementsByClassName("input-container")[0].innerHTML += data;
 });
-$("#generate").click(() => {
-  genMovieName.copyToClipboard($(".output"));
+
+document.getElementById("generate").addEventListener("click", () => {
+  main.Copy(document.getElementsByClassName("output")[0].value);
 });

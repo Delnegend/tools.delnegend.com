@@ -2,29 +2,30 @@ body {
   margin: 0;
 }
 
-.container {
+.input-container, .output-container {
+  width: 80%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.input-container {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
 }
 
-.btnCtn {
+.button-container {
   width: 100%;
   display: flex;
   justify-content: center;
   margin: 20px auto 40px auto;
 }
 
-.outputCtn {
-  margin: 0 auto;
+.output-container {
   display: flex;
   justify-content: center;
-  width: 100%;
-  max-width: 1140px;
   padding: 0 15px;
-  // min-height: 100px;
   height: auto;
-
   .output {
     text-align: center;
     padding: 1em;
@@ -32,23 +33,5 @@ body {
     border-radius: 5px;
     width: 100%;
     // margin: 0 auto;
-  }
-}
-
-@media screen and (max-width: 1199px) {
-  .outputCtn {
-    max-width: 960px;
-  }
-}
-
-@media screen and (max-width: 991px) {
-  .outputCtn {
-    max-width: 720px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .outputCtn {
-    max-width: 540px;
   }
 }
