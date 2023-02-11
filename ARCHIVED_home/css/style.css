@@ -42,25 +42,13 @@ body .websites_container .website {
   border-radius: 0.3em;
   overflow: hidden;
   margin: 1em;
-  -webkit-transition: box-shadow 0.5s ease-out;
-  -moz-transition: box-shadow 0.5s ease-out;
-  -ms-transition: box-shadow 0.5s ease-out;
-  -o-transition: box-shadow 0.5s ease-out;
   transition: box-shadow 0.5s ease-out;
-  -webkit-transition: transform 0.2s ease-out;
-  -moz-transition: transform 0.2s ease-out;
-  -ms-transition: transform 0.2s ease-out;
-  -o-transition: transform 0.2s ease-out;
   transition: transform 0.2s ease-out;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
   -ms-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
   -o-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
 }
 body .websites_container .website:hover {
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
   -ms-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
   -o-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
@@ -71,5 +59,3 @@ body .websites_container .website img {
   width: auto;
   height: 100px;
 }
-
-/*# sourceMappingURL=style.css.map */

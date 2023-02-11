@@ -16,7 +16,7 @@ h3 {
 
 hr {
   margin: 1em 0 !important;
-  border: 1px solid #b4b4b4;
+  border: 1px solid rgb(180, 180, 180);
 }
 
 body {
@@ -58,7 +58,6 @@ a:hover {
 .option-input {
   -webkit-appearance: none;
   -moz-appearance: none;
-  -ms-appearance: none;
   -o-appearance: none;
   appearance: none;
   position: relative;
@@ -93,8 +92,6 @@ a:hover {
   line-height: 20px;
 }
 .option-input .option-input:checked::after {
-  -webkit-animation: click-wave 0.65s;
-  -moz-animation: click-wave 0.65s;
   animation: click-wave 0.65s;
   background: #40e0d0;
   content: "";
@@ -111,6 +108,7 @@ a:hover {
 
 label {
   font-weight: normal;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -139,6 +137,7 @@ label {
 }
 .step1 .ImOp3 .clearNdemo {
   margin: 10px auto 0 auto;
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -160,7 +159,7 @@ label {
   align-items: center;
   padding: 0.5em;
   margin: 5px;
-  border: 1px solid #9c9c9c;
+  border: 1px solid rgb(156, 156, 156);
   border-radius: 5px;
 }
 .step2 .otherOptions label:not(.whitelist) {
@@ -193,7 +192,8 @@ header {
   top: 0;
   text-align: center;
   background-color: rgba(61, 201, 187, 0.5);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   text-transform: uppercase;
 }
 header a {
@@ -203,6 +203,7 @@ header a {
 }
 header .product {
   text-align: center;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto 10px auto;
 }
@@ -213,5 +214,3 @@ a:link,
 a:active {
   text-decoration: none;
 }
-
-/*# sourceMappingURL=style.css.map */
