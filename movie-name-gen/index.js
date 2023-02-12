@@ -18,13 +18,16 @@ const main = {
     });
   },
   Copy: string => {
-    let temporary_elem = document.createElement("textarea");
-    temporary_elem.value = string.html();
-    document.body.appendChild(temporary_elem);
-    temporary_elem.select();
-    temporary_elem.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(temporary_elem.value);
-    document.body.removeChild(temporary_elem);
+    // copy to clipboard
+    let copyText = document.createElement("textarea");
+    copyText.value = string;
+    document.body.appendChild(copyText);
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(copyText.value);
+    document.body.removeChild(copyText);
+    alert("Copied the text: " + copyText.value);
+    // show alert
   },
   input_fields: [{
     "title": "Movie name",
@@ -78,9 +81,9 @@ const main = {
 };
 main.input_fields.forEach(async elem => {
   let data = await main.InputFields(elem.title, elem.placeholder, elem.id);
-  document.getElementsByClassName("input-container")[0].innerHTML += data;
+  document.getElementsByClassName("input-container")[0].insertAdjacentHTML("beforeend", data);
 });
 
 document.getElementById("generate").addEventListener("click", () => {
-  main.Copy(document.getElementsByClassName("output")[0].value);
+  main.Copy(document.getElementsByClassName("output")[0].innerHTML);
 });
